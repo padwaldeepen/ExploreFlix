@@ -1,12 +1,14 @@
-import './App.css';
-import { CustomRoutes } from './routes';
-import {ResponsiveAppBar} from './pages/AppBar/AppBar';
+import { AppBar } from './layouts/AppBar';
+import { AppRoutes } from './routes/AppRoutes';
+import './styles/globals.scss';
 
 function App() {
   return (
-    <div>
-    <ResponsiveAppBar/>
-    <CustomRoutes/>
+    <div className="app">
+      <AppBar />
+      <main className="main-content">
+        <AppRoutes />
+      </main>
     </div>
   );
 }

@@ -1,0 +1,241 @@
+.notFound {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+}
+
+.animatedBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floatingElement {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-glow), transparent);
+  border-radius: 50%;
+  opacity: 0.1;
+  
+  &:first-child {
+    top: 20%;
+    left: 10%;
+  }
+  
+  &:nth-child(2) {
+    top: 60%;
+    right: 15%;
+  }
+  
+  &:nth-child(3) {
+    bottom: 30%;
+    left: 20%;
+  }
+}
+
+.mainContent {
+  position: relative;
+  z-index: 3;
+}
+
+.errorCode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  
+  @media (max-width: 768px) {
+    gap: var(--spacing-md);
+  }
+}
+
+.number {
+  font-size: 8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-shadow: 0 0 30px var(--primary-glow);
+  
+  @media (max-width: 768px) {
+    font-size: 6rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 4rem;
+  }
+}
+
+.zero {
+  font-size: 8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-shadow: 0 0 30px var(--primary-glow);
+  
+  @media (max-width: 768px) {
+    font-size: 6rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 4rem;
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.2;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-2xl);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  margin-bottom: var(--spacing-xl);
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+}
+
+.primaryButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background: linear-gradient(135deg, var(--primary), #00CCAA);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px var(--primary-glow);
+  transition: all var(--transition-normal);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--primary-glow);
+  }
+  
+  @media (max-width: 768px) {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+  }
+}
+
+.secondaryButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-lg);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  
+  &:hover {
+    background: var(--primary);
+    color: var(--bg-primary);
+    box-shadow: 0 0 20px var(--primary-glow);
+  }
+  
+  @media (max-width: 768px) {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+  }
+}
+
+.suggestion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .notFound {
+    padding: var(--spacing-lg);
+  }
+  
+  .container {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .notFound {
+    padding: var(--spacing-md);
+  }
+  
+  .container {
+    padding: var(--spacing-md);
+  }
+  
+  .actions {
+    .primaryButton,
+    .secondaryButton {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+} 

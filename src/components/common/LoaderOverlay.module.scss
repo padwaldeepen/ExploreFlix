@@ -1,0 +1,53 @@
+.loaderOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 15, 15, 0.96);
+  z-index: 20000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+}
+
+.loaderSpinner {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.loaderDot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  animation: loaderBounce 1.2s infinite ease-in-out alternate;
+}
+
+.loaderDot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loaderDot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.loaderDot:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes loaderBounce {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-18px); opacity: 0.7; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.loaderText {
+  color: var(--primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 2px 12px var(--primary-glow);
+} 

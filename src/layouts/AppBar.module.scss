@@ -1,0 +1,316 @@
+.appBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 255, 209, 0.1);
+  transition: all var(--transition-normal);
+  
+  &.scrolled {
+    background: rgba(15, 15, 15, 0.95);
+    border-bottom-color: rgba(0, 255, 209, 0.2);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+  }
+
+  .logo {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .navMenu {
+    display: flex;
+    gap: 16px;
+
+    .navButton {
+      color: white;
+      font-weight: 500;
+      text-transform: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+
+  .mobileLogo {
+    display: none;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  
+  @media (max-width: 768px) {
+    height: 60px;
+    padding: 0 var(--spacing-md);
+  }
+}
+
+.logo {
+  position: relative;
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .logoGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  position: relative;
+  font-weight: 500;
+  
+  &:hover {
+    color: var(--text-primary);
+    background: rgba(0, 255, 209, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  &.active {
+    color: var(--primary);
+    background: rgba(0, 255, 209, 0.15);
+    
+    svg {
+      color: var(--primary);
+    }
+  }
+  
+  .activeIndicator {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 1px;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.actionButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  
+  &:hover {
+    color: var(--primary);
+    background: rgba(0, 255, 209, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+    box-shadow: 0 2px 8px var(--accent-glow);
+  }
+}
+
+.mobileMenuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  
+  &:hover {
+    color: var(--primary);
+    background: rgba(0, 255, 209, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.mobileMenu {
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0, 255, 209, 0.1);
+  overflow: hidden;
+}
+
+.mobileNav {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  font-weight: 500;
+  
+  &:hover {
+    color: var(--text-primary);
+    background: rgba(0, 255, 209, 0.1);
+  }
+  
+  &.active {
+    color: var(--primary);
+    background: rgba(0, 255, 209, 0.15);
+    
+    svg {
+      color: var(--primary);
+    }
+  }
+}
+
+// Background animation
+.appBar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 209, 0.05),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.appBar:hover::before {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .appBar {
+    .toolbar {
+      padding: 0 16px;
+    }
+
+    .navMenu {
+      display: none;
+    }
+
+    .mobileMenu {
+      display: block;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    .mobileLogo {
+      display: block;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-weight: 700;
+      letter-spacing: 0.3rem;
+      color: white;
+      text-decoration: none;
+    }
+  }
+} 
